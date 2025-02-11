@@ -19,10 +19,6 @@ if (!process.env.DISABLE_XORIGIN) {
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     }
     next();
-
-app.get('/json', (req, res) => {
-    res.json({ message: "Hello json" });
-});
   });
 }
 
@@ -36,4 +32,6 @@ bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, () => {
  * the verification process may break
  * ***************************************************/
 
-
+app.get('/json', (req, res) => {
+  res.json({ message: "Hello json" });
+});
