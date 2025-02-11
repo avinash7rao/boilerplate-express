@@ -17,14 +17,7 @@ if (!process.env.DISABLE_XORIGIN) {
          res.setHeader('Access-Control-Allow-Origin', origin);
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     }
-    app.get("/json", (req, res) => {
-      res.json({
-        message: "Hello json"
-      });
-    });
-  
     next();
-
   });
 }
 
