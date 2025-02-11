@@ -11,7 +11,7 @@ const app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
 
-  app.get("/", function(req, res) {
+  app.get("/", (req, res) => {
     res.send("Hello Express");
   });
 
