@@ -8,6 +8,12 @@ const myApp = require('./myApp');
 const express = require('express');
 const app = express();
 
+const express = require('express');
+
+app.get('/json', (req, res) => {
+    res.json({ message: "Hello json" });
+});
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
     const allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
@@ -20,8 +26,6 @@ if (!process.env.DISABLE_XORIGIN) {
     next();
   });
 }
-
-
 
 const port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, () => {
