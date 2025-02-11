@@ -10,11 +10,6 @@ const app = express();
 
 
 if (!process.env.DISABLE_XORIGIN) {
-
-  app.get("/", (req, res) => {
-    res.send("Hello Express");
-  });
-
   app.use((req, res, next) => {
     const allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
     const origin = req.headers.origin || '*';
@@ -38,3 +33,6 @@ bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, () => {
  * the verification process may break
  * ***************************************************/
 
+app.get("/", (req, res) => {
+  res.send("Hello Express");
+});
