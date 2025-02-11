@@ -20,6 +20,9 @@ if (!process.env.DISABLE_XORIGIN) {
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     }
     next();
+    app.get("/", function(req, res) {
+      res.send("Hello Express");
+    });
   });
 }
 
