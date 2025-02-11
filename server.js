@@ -8,11 +8,6 @@ const myApp = require('./myApp');
 const express = require('express');
 const app = express();
 
-const express = require('express');
-
-app.get('/json', (req, res) => {
-    res.json({ message: "Hello json" });
-});
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
@@ -24,6 +19,10 @@ if (!process.env.DISABLE_XORIGIN) {
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     }
     next();
+
+app.get('/json', (req, res) => {
+    res.json({ message: "Hello json" });
+});
   });
 }
 
