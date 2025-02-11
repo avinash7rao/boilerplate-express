@@ -14,9 +14,6 @@ if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
     const allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
     const origin = req.headers.origin || '*';
-    app.get("/", (req, res) => {
-      res.send("Hello Express");
-    });
     if(!process.env.XORIG_RESTRICT || allowedOrigins.indexOf(origin) > -1){
          console.log(origin);
          res.setHeader('Access-Control-Allow-Origin', origin);
@@ -29,6 +26,10 @@ if (!process.env.DISABLE_XORIGIN) {
 const port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, () => {
   bGround.log(`Node is listening on port ${port}...`);
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello Express");
 });
 
 /******************************************************
